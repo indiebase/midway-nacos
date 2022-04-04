@@ -53,7 +53,7 @@ export class Demo1Service{
   @Inject()
   nacosConfigService: NacosConfigService
 
-  foo(){
+  async foo(){
       const configs = await this.nacosConfigService.getConfig('demo.json');
   }
 
@@ -74,7 +74,7 @@ export class Demo2Service{
   @NacosConfig('service.yaml', YAML.parse)
   configs3: {a: {b: string}}
 
-  foo(){
+  async foo(){
     console.log(await this.configs1)   
   }
 
