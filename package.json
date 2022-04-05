@@ -20,8 +20,7 @@
   },
   "keywords": [
     "midway",
-    "jsonwebtoken",
-    "jwt"
+    "nacos"
   ],
   "author": "Nawbc",
   "license": "MIT",
