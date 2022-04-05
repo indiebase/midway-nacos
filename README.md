@@ -11,7 +11,6 @@ import * as nacos from '@letscollab/midway-nacos';
   importConfigs: [resolve(__dirname, './config')],
 })
 export class AutoConfiguration implements ILifeCycle {}
-
 ```
 
 ## 配置
@@ -44,46 +43,41 @@ export default (appInfo: MidwayAppInfo): MidwayConfig & CustomConfig => {
 };
 ```
 
-
 ## 配置中心
 
 ```ts
 @Provide()
-export class Demo1Service{
+export class Demo1Service {
   @Inject()
-  nacosConfigService: NacosConfigService
+  nacosConfigService: NacosConfigService;
 
-  async foo(){
-      const configs = await this.nacosConfigService.getConfig('demo.json');
+  async foo() {
+    const configs = await this.nacosConfigService.getConfig('demo.json');
   }
-
 }
 
 // Or
 
 @Provide()
-export class Demo2Service{
+export class Demo2Service {
   @NacosConfig('service.json')
-  configs1: {a: {b: string}}
-
+  configs1: { a: { b: string } };
 
   @NacosConfig('service.json', 'a.b')
-  configs2: string
+  configs2: string;
 
   // 自定义数据parser
   @NacosConfig('service.yaml', YAML.parse)
-  configs3: {a: {b: string}}
+  configs3: { a: { b: string } };
 
-  async foo(){
-    console.log(await this.configs1)   
+  async foo() {
+    console.log(await this.configs1);
   }
-
 }
-
-
 ```
 
-数据传输默认使用json, 更换如下
+数据传输默认使用 json, 更换如下
+
 ```ts
 import YAML from 'yaml';
 
@@ -94,6 +88,14 @@ import YAML from 'yaml';
     }
   }
 }
+
+//Or
+this.nacosService.setDataParser(YAML.parse).getConfig('xxx')
+
+//Or
+@NacosConfig('xxx', YAML.parse)
+
+
 
 ```
 
@@ -122,4 +124,4 @@ export class AutoConfiguration implements ILifeCycle {
 }
 ```
 
-其他参考请 https://www.npmjs.com/package/nacos 
+其他参考请 https://www.npmjs.com/package/nacos
