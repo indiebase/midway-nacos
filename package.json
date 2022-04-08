@@ -23,14 +23,11 @@
     "nacos"
   ],
   "author": "Nawbc",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "devDependencies": {
-    "@midwayjs/core": "^3.2.0",
+    "@midwayjs/core": "^3.3.0",
     "@midwayjs/decorator": "^3.1.6",
-    "@midwayjs/express": "^3.2.0",
-    "@midwayjs/koa": "^3.2.0",
-    "@midwayjs/mock": "^3.2.0",
-    "@midwayjs/web": "^3.2.0",
+    "@midwayjs/mock": "^3.3.0",
     "typescript": "^4.5.4"
   },
   "dependencies": {
